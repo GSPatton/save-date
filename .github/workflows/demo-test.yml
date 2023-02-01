@@ -17,6 +17,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: sudo apt update
       - run: sudo apt install ruby-full
+      - run: sudo gem install bundler
       - name: Running bundle install
         run: |
           bundle install --path .bundle
