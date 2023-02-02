@@ -19,7 +19,6 @@ jobs:
 
       - name: Activate Ruby 2.7
         uses: ruby/setup-ruby@v1
-        if: ${{ github.repository_owner == 'puppetlabs' }}
         with:
           ruby-version: "2.7"
           bundler-cache: true
