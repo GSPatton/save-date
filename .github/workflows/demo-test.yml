@@ -16,11 +16,14 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: sudo apt update
-      - run: sudo apt install ruby-full
-      - run: sudo gem install bundler
-      - name: Running bundle install
-        run: |
-          bundle install --path .bundle
+
+      - name: Activate Ruby 2.7
+        uses: ruby/setup-ruby@v1
+        if: ${{ github.repository_owner == 'puppetlabs' }}
+        with:
+          ruby-version: "2.7"
+          bundler-cache: true
+      
       - name: Testing for unsafe interpolations
         run: |
           bundle exec puppet-lint --only-checks check_unsafe_interpolations manifests/init.pp
