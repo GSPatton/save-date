@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Check unsafe interpolations demo
+run-name: Hello Config Management Camp!
 on: 
   push:
   pull_request:
@@ -8,8 +8,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-
       - name: Check out repository code
         uses: actions/checkout@v3
 
